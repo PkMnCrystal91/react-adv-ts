@@ -4,10 +4,10 @@ import { lazy } from "react";
 type JSXComponent = () => JSX.Element;
 
 interface Route {
+  to: string;
   path: string;
   component: LazyExoticComponent<JSXComponent> | JSXComponent;
   name: string;
-  children?: Route[];
 }
 
 const LazyPage1 = lazy(
@@ -25,17 +25,20 @@ const LazyPage3 = lazy(
 
 export const routes: Route[] = [
   {
-    path: "/lazy1",
+    to: "/lazy1",
+    path: "lazy1",
     component: LazyPage1,
     name: "LazyPage-1",
   },
   {
-    path: "/lazy2",
+    to: "/lazy2",
+    path: "lazy2",
     component: LazyPage2,
     name: "LazyPage-2",
   },
   {
-    path: "/lazy3",
+    to: "/lazy3",
+    path: "lazy3",
     component: LazyPage3,
     name: "LazyPage-3",
   },
